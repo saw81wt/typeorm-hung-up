@@ -3,23 +3,22 @@ import { User } from "../typeorm/entity/User"
 
 const main = async () => {
     await AppDataSource.initialize()
-    const select = async () => {
+    const findUserWithPhoto = async () => {
         const repository = AppDataSource.getRepository(User)
         return await repository.findOne({
             where: { id: 1 },
             relations: {
                 photos: true
             },
-            //loadEagerRelations: false,
             relationLoadStrategy: "query"
         })
     }
 
     const result = []
     for (let i = 0; i < 10; i++) {
-        result.push(select())
+        result.push(findUserWithPhoto())
     }
-
+    await Promise.all(result)
     await AppDataSource.destroy()
 }
 
