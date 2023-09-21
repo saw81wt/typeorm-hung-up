@@ -1,0 +1,23 @@
+{
+  "name": "typeorm-hung-up",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "sotaro-maehara",
+  "license": "MIT",
+  "dependencies": {
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "mysql2": "^3.6.1",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:run": "migration:generate -d typeorm/data-source.ts",
+    "seed": "ts-node typeorm/seed.ts"
+  }
+}
