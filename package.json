@@ -15,7 +15,7 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/main.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:run": "migration:generate -d typeorm/data-source.ts",
     "seed": "ts-node typeorm/seed.ts"
